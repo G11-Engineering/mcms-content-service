@@ -2,13 +2,13 @@ services:
 
   web:
     build: ./
-    command: /app/.venv/bin/fastapi run src/mcms-content-service/main.py --reload --port 80 --host 0.0.0.0
+    command: /app/.venv/bin/fastapi run src/mcms_content_service/main.py --reload --port 80 --host 0.0.0.0
     volumes:
-      - ./src:/app/src/
+      - ./src:/app/src
     ports:
       - 8080:80
     environment:
-      - DATABASE_URL=postgresql://postgres:postgres@db:5432/foo
+      - DATABASE_URL=postgresql+psycopg2://postgres:postgres@db:5432/foo
     depends_on:
       - db
 

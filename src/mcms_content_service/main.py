@@ -1,19 +1,16 @@
 from fastapi import FastAPI, Depends
 from sqlmodel import select
 from sqlmodel import Session
-from .db import get_session, init_db
+from .db import get_session
 from .models import Post, PostCreate
 
 app = FastAPI()
 
 
-@app.on_event("startup")
-def on_startup():
-    init_db()
-
 @app.get("/")
 async def root():
     return {"message": "Hello World"}
+
 
 @app.get("/posts", response_model=list[Post])
 def get_posts(session: Session = Depends(get_session)):
@@ -31,4 +28,3 @@ def add_post(post: PostCreate, session: Session = Depends(get_session)):
     session.refresh(post)
 
     return post
-

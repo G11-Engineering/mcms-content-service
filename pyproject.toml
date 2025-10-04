@@ -1,5 +1,5 @@
 [project]
-name = "mcms-content-service"
+name = "mcms_content_service"
 version = "0.1.0"
 description = "Add your description here"
 readme = "README.md"
