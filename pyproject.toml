@@ -1,11 +1,14 @@
 [project]
-name = "mcms-content-service"
+name = "mcms_content_service"
 version = "0.1.0"
 description = "Add your description here"
 readme = "README.md"
 requires-python = ">=3.12"
 dependencies = [
+    "alembic>=1.16.5",
     "fastapi[standard]>=0.118.0",
+    "psycopg2-binary>=2.9.10",
+    "sqlmodel>=0.0.25",
 ]
 
 [dependency-groups]
