@@ -2,6 +2,7 @@ services:
 
   web:
     build: ./
+    command: /app/.venv/bin/fastapi run src/mcms-content-service/main.py --reload --port 80 --host 0.0.0.0
     volumes:
       - ./src:/app/src/
     ports:
